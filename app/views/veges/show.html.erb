@@ -1,0 +1,27 @@
+<div class ="contents row">
+  <div class="content_post" style="background-image: url(<%= @vege.image %>);">
+  </div>
+  <%= simple_format(@vege.vege) %>
+</div>
+<div class="contents row">
+  <% if current_user %>
+    <%= form_tag("/veges/#{@vege.id}/menus", method: :post) do %>
+      <h4>メニューを増やす</h4>
+      <input placeholder="名前" type="text" name="dish">
+      <input placeholder="写真" type="text" name="photo">
+      <input placeholder="レシピリンク" type="text" name="link">
+      <input type="submit" value="SENT">
+      <% end %>
+  <% end %>
+  <div class="menus">
+        <h4>全部のメニュー</h4>
+        <div class="contents row">
+          <% @menus.each do |menu| %>
+            <%= render partial: "menu", locals: { menu: menu } %>
+          <% end %>
+        </div>
+  </div>
+</div>
+
+
+

@@ -1,0 +1,5 @@
+<div class="contents row">
+  <% @veges.each do |vege| %>
+    <%= render partial: "vege", locals: { vege: vege } %>
+  <% end %>
+</div>
